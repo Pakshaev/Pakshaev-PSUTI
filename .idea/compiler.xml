@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="pakshaev-psuti" target="1.8" />
       <module name="Pakshaev-PSUTI" target="1.8" />
     </bytecodeTargetLevel>
   </component>
