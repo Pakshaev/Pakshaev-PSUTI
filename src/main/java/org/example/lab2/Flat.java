@@ -11,33 +11,35 @@ public class Flat {
         final int baseFSquare = 50;
     }
 
-    public Flat()
+    public Flat(int flatSquare)
     {
-
+        Flat.roomsAmount = 2;
+        Flat.flatSquare = flatSquare;
     }
 
-    public Flat()
+    public Flat(int flatSquare, int roomsAmount)
     {
-
+        Flat.flatSquare = flatSquare;
+        Flat.roomsAmount = roomsAmount;
     }
 
-    public void getRoomsAmount()
+    public int getRoomsAmount()
     {
-        return;
+        return Flat.roomsAmount;
     }
 
-    public void changeRoomsAmount()
+    public void changeRoomsAmount(int roomsAmount)
     {
-
+        Flat.roomsAmount = roomsAmount;
     }
 
-    public void getFlatSquare()
+    public int getFlatSquare()
     {
-        return;
+        return flatSquare;
     }
 
-    public void changeFlatSquare()
+    public void changeFlatSquare(int flatSquare)
     {
-
+        Flat.flatSquare = flatSquare;
     }
 }
