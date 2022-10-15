@@ -10,13 +10,13 @@ public class Task3 {
     public static void main(String[] args) throws IOException {
         LinkedList<Integer> list = new LinkedList<>();
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String stringNumber = reader.readLine();
+        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+        String stringNumber = read.readLine();
         int intNumber = Integer.parseInt(stringNumber);
 
         while (intNumber != 0) { // 0 = stop loop
             list.add(intNumber);
-            stringNumber = reader.readLine();
+            stringNumber = read.readLine();
             intNumber = Integer.parseInt(stringNumber);
         }
 
