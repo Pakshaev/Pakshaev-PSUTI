@@ -1,5 +1,4 @@
 package org.example.lab2;
-
 public class DwellingFloor {
     private Flat[] flats;
 
@@ -39,13 +38,26 @@ public class DwellingFloor {
         return flats[number];
     }
 
+    public void changeFloor(int floorNumber, Flat floorLink){ //изменение квартиры по номеру и ссылке на квартиру
+        if(floorNumber < flats.length && floorNumber>=0 && floorLink != null){
+            flats[floorNumber] = floorLink;}
+    }
+
+    public void addNewFlat(int floorNumber, Flat floorLink){ //добавление новой квартиры по номеру и ссылке на квартиру
+        if(floorNumber >= flats.length && floorLink != null){
+            flats[floorNumber] = floorLink;}
+    }
+
+    public void deleteFlat(int floorNumber){
+        flats[floorNumber] = null;
+    }
 
     public Flat getBestSpace() {
         int max = 0;
         Flat bestFlat = flats[0];
 
         for (int i = 0; i < flats.length; i++) {
-            if (flats[i].getFlatSquare() > max) {
+            if (flats[i].getFlatSquare() > max ) {
                 max = flats[i].getFlatSquare();
                 bestFlat = flats[i];
             }

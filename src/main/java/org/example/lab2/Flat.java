@@ -1,6 +1,5 @@
 package org.example.lab2;
-
-public class Flat {
+public class  Flat {
 
     private int flatSquare;
     private int roomsAmount;
