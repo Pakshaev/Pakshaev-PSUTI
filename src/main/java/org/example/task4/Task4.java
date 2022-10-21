@@ -12,9 +12,9 @@ public class Task4 {
         ArrayList<Integer> _arr = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length; j++) {
-                if(i+j==_k){
-                    _arr.add(i);
-                    _arr.add(j);
+                if(arr[i]+arr[j]==_k){
+                    _arr.add(arr[i]);
+                    _arr.add(arr[j]);
                 }
             }
             if(_arr.size() == 2){
