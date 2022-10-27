@@ -1,20 +1,20 @@
 package org.example.lab2;
 public class DwellingFloor {
-    private Flat[] flats;
-
-    public DwellingFloor(int count) {
-        flats = new Flat[count];
+    private int amountOfFlatsOnFloor = 0; //количество квартир на этаже
+    private Flat[] flats = new Flat[amountOfFlatsOnFloor]; //массив квартир на этаже
+    public DwellingFloor(int amountOfFlatsOnFloor) { //инициализации количества квартир на этаже
+        this.amountOfFlatsOnFloor = amountOfFlatsOnFloor;
     }
 
-    public DwellingFloor(Flat[] flats) {
+    public DwellingFloor(Flat[] flats) { //конструктор инициализации массива квартир на этаже
         this.flats = flats;
     }
 
-    public int getAmountFlatsOnFloor() {
+    public int getAmountFlatsOnFloor() { //получить количество квартир на этаже
         return flats.length;
     }
 
-    public int getSquareFlatsOnFloor() {
+    public int getTotalSquareFlatsOnFloor() { //получить общую площадь квартир на этаже
         int sum = 0;
         for (int i = 0; i < flats.length; i++) {
             sum += flats[i].getFlatSquare();
@@ -22,7 +22,7 @@ public class DwellingFloor {
         return sum;
     }
 
-    public int getTotalRooms() {
+    public int getTotalAmountOfRoomsOnFloor() { //получить количество комнат на этаже
         int sum = 0;
         for (int i = 0; i < flats.length; i++) {
             sum += flats[i].getRoomsAmount();
@@ -30,29 +30,29 @@ public class DwellingFloor {
         return sum;
     }
 
-    public Flat[] getArrayFlats() {
+    public Flat[] getArrayFlats() { //получить массив квартир на этаже
         return flats;
     }
 
-    public Flat getFlat(int number) {
+    public Flat getFlat(int number) { //получить объект квартиры на этаже
         return flats[number];
     }
 
-    public void changeFloor(int floorNumber, Flat floorLink){ //изменение квартиры по номеру и ссылке на квартиру
+    public void changeFloor(int floorNumber, Flat floorLink){ //изменение квартиры по номеру на этаже и ссылке на квартиру
         if(floorNumber < flats.length && floorNumber>=0 && floorLink != null){
             flats[floorNumber] = floorLink;}
     }
 
-    public void addNewFlat(int floorNumber, Flat floorLink){ //добавление новой квартиры по номеру и ссылке на квартиру
+    public void addNewFlat(int floorNumber, Flat floorLink){ //добавление новой квартиры по номеру на этаже и ссылке на квартиру
         if(floorNumber >= flats.length && floorLink != null){
             flats[floorNumber] = floorLink;}
     }
 
-    public void deleteFlat(int floorNumber){
+    public void deleteFlat(int floorNumber){ //удалить квартиру по номеру на этаже
         flats[floorNumber] = null;
     }
 
-    public Flat getBestSpace() {
+    public Flat getBestSpace() { //получить самую большую по площади квартиру на этаже
         int max = 0;
         Flat bestFlat = flats[0];
 
@@ -64,37 +64,5 @@ public class DwellingFloor {
         }
         return bestFlat;
     }
-
-
-
-    //static int amountFlatsOnFloor;
-/*    static int[] floorNumber;
-
-    public DwellingFloor(int amountFlatsOnFloor) {
-        DwellingFloor.amountFlatsOnFloor = amountFlatsOnFloor;
-    }
-
-    public DwellingFloor(int[] floorNumber) {
-        DwellingFloor.floorNumber = floorNumber;
-    }
-
-    public int getAmountFlatsOnFloor(){
-        return amountFlatsOnFloor;
-    }
-
-    public int getSquareFlatsOnFloor(){
-        return amountFlatsOnFloor*Flat.flatSquare;
-    }
-
-    public int getAmountRoomsOnFloor(){
-        return amountFlatsOnFloor*Flat.roomsAmount;
-    }
-
-    public void getNumbersFlatOnFloor(){
-        for (int el:DwellingFloor.floorNumber) {
-            System.out.println(el);
-        }
-    }*/
-
 
 }
