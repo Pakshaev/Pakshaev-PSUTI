@@ -65,4 +65,10 @@ public class DwellingFloor {
         return bestFlat;
     }
 
+    public void changeFlatsArray(Flat[] flatsArray){
+        flats = null;
+        flats = flatsArray;
+    }
+
+
 }

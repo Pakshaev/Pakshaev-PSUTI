@@ -1,5 +1,7 @@
 package org.example.lab2;
 
+import javax.swing.*;
+
 public class Dwelling {
     private int amountOfFloors = 0; //количество этажей в доме
     private DwellingFloor[] floors = new DwellingFloor[amountOfFloors]; //массив этажей в доме
@@ -48,19 +50,95 @@ public class Dwelling {
         return floors[number];
     }
 
-    /*public void changeFloor (DwellingFloor flat, int number){ //изменение этажа (принимает номер этажа и ссылку на обновлённый этаж)
+    public void changeFloor (int number, DwellingFloor flat){ //изменение этажа (принимает номер этажа и ссылку на обновлённый этаж)
         floors[number] = flat;
-    }*/
-
-
-
-
-
-
-
-    public int getAmountFlatsOnFloor() {
-        return flats.length;
     }
 
+    public Flat getFlatOnDwelling(int number) {
+        int count = 0;
+        int numberFlatOnFlor = 0;
+        int AmountFlatOnFlor = 0;
+        if (number <= getTotalAmountOfFlatsInBuilding()) {
+            for (int i = 0; i < floors.length; i++) {
+                count += floors[i].getAmountFlatsOnFloor();
+                if (count > number) {
+                    AmountFlatOnFlor = floors[i].getAmountFlatsOnFloor();
+                    numberFlatOnFlor = AmountFlatOnFlor - (count - number);
+                    return floors[i].getFlat(numberFlatOnFlor);
+                }
+            }
+        }
+        return null;
+    }
+
+    public void changeFlatInDwelling(int number, Flat objFlat){
+
+        Flat currentFlat = getFlatOnDwelling(number);
+        currentFlat = objFlat;
+    }
+
+    public void AddFlatInDwelling(int number, Flat objFlat) {
+       int numberCurrentFlat = getNumberFlatOnFlor(number);
+       DwellingFloor currentFloor = getFloorOnDwelling(number);
+       Flat[] newFlatsArray = new Flat[currentFloor.getAmountFlatsOnFloor()+1];
+       int delta = 0;
+       for (int i = 0; i<currentFloor.getAmountFlatsOnFloor()+1; i++){
+           if (i != numberCurrentFlat){
+               newFlatsArray[i] = currentFloor.getArrayFlats()[i-delta];
+           } else {
+               newFlatsArray[i] = objFlat;
+               delta = 1;
+           }
+           }
+       currentFloor.changeFlatsArray(newFlatsArray);
+       }
+
+    public void DeleteFlatInDwelling(int number){
+        int numberCurrentFlat = getNumberFlatOnFlor(number);
+        DwellingFloor currentFloor = getFloorOnDwelling(number);
+        Flat[] newFlatsArray = new Flat[currentFloor.getAmountFlatsOnFloor()-1];
+        int delta = 0;
+        for (int i = 0; i<currentFloor.getAmountFlatsOnFloor()+1; i++){
+            if (i != numberCurrentFlat){
+                newFlatsArray[i-delta] = currentFloor.getArrayFlats()[i];
+            } else {
+                delta = 1;
+            }
+        }
+        currentFloor.changeFlatsArray(newFlatsArray);
+    }
+
+    public Flat getBestSpace(){
+        Flat currentBestFlat =
+        int BestSpace = 0;
+        for(int i = 0; i<floors.length; i++){
+            if (floors[i].getBestSpace() > BestSpace)
+        }
+    }
+
+
+
+    public DwellingFloor getFloorOnDwelling(int numberFlat){
+        int count = 0;
+        for (int i = 0; i < floors.length; i++) {
+            count += floors[i].getAmountFlatsOnFloor();
+            if (count > numberFlat) {
+                return floors[i];
+            }
+        } return null;
+    }
+
+    public int getNumberFlatOnFlor(int number){
+        int count = 0;
+        int AmountFlatOnFlor = 0;
+
+        for (int i = 0; i < floors.length; i++) {
+            count += floors[i].getAmountFlatsOnFloor();
+            if (count > number) {
+                AmountFlatOnFlor = floors[i].getAmountFlatsOnFloor();
+                return AmountFlatOnFlor - (count - number);
+            }
+        } return -1;
+    }
 
 }
