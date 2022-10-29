@@ -31,6 +31,7 @@ class Main {
         flat3.setRoomsAmount(4);
         System.out.println(flat3.getFlatSquare());
         System.out.println(flat3.getRoomsAmount());
+        System.out.println(flat3.getRoomsAmount());
         
         
     
