@@ -30,6 +30,7 @@ public class DwellingFloor {
         return sum;
     }
 
+
     public Flat[] getArrayFlats() { //получить массив квартир на этаже
         return flats;
     }
@@ -64,6 +65,7 @@ public class DwellingFloor {
         }
         return bestFlat;
     }
+
 
     public void changeFlatsArray(Flat[] flatsArray){
         flats = null;

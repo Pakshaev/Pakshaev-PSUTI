@@ -1,6 +1,6 @@
 package org.example.lab2;
 
-import javax.swing.*;
+
 
 public class Dwelling {
     private int amountOfFloors = 0; //количество этажей в доме
@@ -109,11 +109,42 @@ public class Dwelling {
     }
 
     public Flat getBestSpace(){
-        Flat currentBestFlat =
+        Flat BestFlat = null;
         int BestSpace = 0;
-        for(int i = 0; i<floors.length; i++){
-            if (floors[i].getBestSpace() > BestSpace)
+        for(int i = 0; i<floors.length; i++) {
+            if (floors[i].getBestSpace().getFlatSquare() > BestSpace) {
+                BestSpace = floors[i].getBestSpace().getFlatSquare();
+                BestFlat = floors[i].getBestSpace();
+            }
         }
+        return BestFlat;
+    }
+
+    public Flat[] getSortFlatArray(){
+        Flat[] newArrFlat = new Flat[getTotalAmountOfFlatsInBuilding()];
+        DwellingFloor[] newArrFloors = new DwellingFloor[getTotalAmountOfFloorsInBuilding()];
+        int count = 0;
+        for (int i = 0; i < newArrFloors.length; i++){
+            for (int j = 0; j < newArrFloors[i].getArrayFlats().length; j++){
+                newArrFlat[count] = newArrFloors[i].getArrayFlats()[j];
+                count++;
+            }
+        }
+
+        int swap = 0;
+        while (swap != 0){
+            swap = 0;
+            for (int i =0; i<newArrFlat.length-1; i++)
+                if(newArrFlat[i].getFlatSquare() < newArrFlat[i+1].getFlatSquare()){
+                    Flat _flat = newArrFlat[i];
+                    newArrFlat[i+1] = newArrFlat[i];
+                    newArrFlat[i] = _flat;
+                    swap++;
+                }
+        }
+
+
+        return newArrFlat;
     }
 
 
