@@ -1,4 +1,5 @@
 package org.example.buildings;
+
 public class Flat {
 
     private int flatSquare; //площадь квартиры

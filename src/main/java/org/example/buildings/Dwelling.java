@@ -4,9 +4,9 @@ public class Dwelling {
     private DwellingFloor[] floors; //массив этажей в доме
 
     /*Конструктор может принимать массив этажей дома.*/
-    public Dwelling(int amountOfFloors) {
-        this.floors = new DwellingFloor[amountOfFloors];
-    } //конструктор инициализации количества этажей в доме
+    public Dwelling(DwellingFloor[] floors) {
+        this.floors = floors;
+    }
 
     /*Конструктор может принимать количество этажей и массив количества квартир по этажам.*/
     public Dwelling(int amountOfFloors, DwellingFloor[] floors) {
@@ -17,6 +17,7 @@ public class Dwelling {
     public int getTotalAmountOfFloorsInBuilding() {
         return floors.length;
     }
+
     /*Создайте метод получения общего количества квартир дома.*/
     public int getTotalAmountOfFlatsInBuilding() {
         int count = 0;
@@ -25,6 +26,7 @@ public class Dwelling {
         }
         return count;
     }
+
     /*Создайте метод получения общей площади квартир дома.*/
     public int getTotalSquareOfFlatsInBuilding() {
         int square = 0;
@@ -33,6 +35,7 @@ public class Dwelling {
         }
         return square;
     }
+
     /*Создайте метод получения общего количества комнат дома.*/
     public int getTotalAmountOfRoomsInBuilding() {
         int rooms = 0;
@@ -46,14 +49,17 @@ public class Dwelling {
     public DwellingFloor[] getArrayOfFloorsInBuilding() {
         return floors;
     }
+
     /*Создайте метод получения объекта этажа, по его номеру в доме.*/
     public DwellingFloor getFlatOnFloor(int number) {
         return floors[number];
     }
+
     /*Создайте метод изменения этажа по его номеру в доме и ссылке на обновленный этаж.*/
     public void changeFloor(int number, DwellingFloor flat) {
         floors[number] = flat;
     }
+
     /*Создайте метод получения объекта квартиры по ее номеру в доме.*/
     public Flat getFlatOnDwelling(int number) {
         int count = 0;
@@ -71,11 +77,13 @@ public class Dwelling {
         }
         return null;
     }
+
     /*Создайте метод изменения объекта квартиры по ее номеру в доме и ссылке на объект квартиры.*/
     public void changeFlatInDwelling(int number, Flat objFlat) {
         Flat currentFlat = getFlatOnDwelling(number);
         currentFlat = objFlat;
     }
+
     /*Создайте метод добавления квартиры в дом по будущему номеру квартиры в доме
     (т.е. в параметрах указывается номер, который должны иметь квартира после вставки)
     и ссылке на объект квартиры (количество этажей в доме при этом не увеличивается).*/
@@ -94,6 +102,7 @@ public class Dwelling {
         }
         currentFloor.changeFlatsArray(newFlatsArray);
     }
+
     /*Создайте метод удаления квартиры по ее номеру в доме.*/
     public void DeleteFlatInDwelling(int number) {
         int numberCurrentFlat = getNumberFlatOnFloor(number);
@@ -109,6 +118,7 @@ public class Dwelling {
         }
         currentFloor.changeFlatsArray(newFlatsArray);
     }
+
     /*Создайте метод getBestSpace() получения самой большой по площади квартиры дома.*/
     public Flat getBestSpace() {
         Flat BestFlat = null;
@@ -120,8 +130,10 @@ public class Dwelling {
             }
         }
         return BestFlat;
+
     }
-    /*Создайте метод получения отсортированного по убыванию площадей массива квартир.*/
+    /*Созд
+    айте метод получения отсортированного по убыванию площадей массива квартир.*/
     public Flat[] getSortFlatsArray() {
         Flat[] newArrFlat = new Flat[getTotalAmountOfFlatsInBuilding()];
         DwellingFloor[] newArrFloors = new DwellingFloor[getTotalAmountOfFloorsInBuilding()];
@@ -138,9 +150,9 @@ public class Dwelling {
             swap = 0;
             for (int i = 0; i < newArrFlat.length - 1; i++)
                 if (newArrFlat[i].getFlatSquare() < newArrFlat[i + 1].getFlatSquare()) {
-                    Flat _flat = newArrFlat[i];
+                    Flat flat = newArrFlat[i];
                     newArrFlat[i + 1] = newArrFlat[i];
-                    newArrFlat[i] = _flat;
+                    newArrFlat[i] = flat;
                     swap++;
                 }
         }
