@@ -13,6 +13,7 @@ public class Dwelling {
         this.floors = new DwellingFloor[amountOfFloors];
         this.floors = floors;
     }
+
     /*Создайте метод получения общего количества этажей дома.*/
     public int getTotalAmountOfFloorsInBuilding() {
         return floors.length;
@@ -130,10 +131,9 @@ public class Dwelling {
             }
         }
         return BestFlat;
-
     }
-    /*Созд
-    айте метод получения отсортированного по убыванию площадей массива квартир.*/
+
+    /*Создайте метод получения отсортированного по убыванию площадей массива квартир.*/
     public Flat[] getSortFlatsArray() {
         Flat[] newArrFlat = new Flat[getTotalAmountOfFlatsInBuilding()];
         DwellingFloor[] newArrFloors = new DwellingFloor[getTotalAmountOfFloorsInBuilding()];

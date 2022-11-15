@@ -2,11 +2,11 @@ package org.example.buildings;
 
 public class Flat {
 
+    private final int BASE_ROOM_AMOUNT = 2; //значение по умолчанию для количества комнат
+    private final int BASE_FLAT_SQUARE = 50; //значение по умолчанию для площади квартиры
     private int flatSquare; //площадь квартиры
     private int roomsAmount; //количество комнат в квартире
 
-    private final int BASE_ROOM_AMOUNT = 2; //значение по умолчанию для количества комнат
-    private final int BASE_FLAT_SQUARE = 50; //значение по умолчанию для площади квартиры
     /*Конструктор по умолчанию создает квартиру из 2 комнат площадью 50 кв.м. (эти числа должны быть константами в классе)*/
     public Flat() {
         this.flatSquare = BASE_FLAT_SQUARE;
@@ -40,5 +40,8 @@ public class Flat {
     public void setFlatSquare(int flatSquare) {
         this.flatSquare = flatSquare;
     }
-
+    @Override
+    public String toString(){
+        return "Комнаты: " + roomsAmount + "\tПлощадь: " + flatSquare;
+    }
 }
