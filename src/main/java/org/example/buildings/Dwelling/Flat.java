@@ -1,4 +1,4 @@
-package org.example.buildings;
+package org.example.buildings.Dwelling;
 
 public class Flat {
 

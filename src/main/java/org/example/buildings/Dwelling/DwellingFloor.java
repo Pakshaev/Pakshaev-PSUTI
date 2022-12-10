@@ -1,4 +1,4 @@
-package org.example.buildings;
+package org.example.buildings.Dwelling;
 
 public class DwellingFloor {
     private Flat[] flats; //массив квартир на этаже

@@ -1,4 +1,4 @@
-package org.example.buildings;
+package org.example.buildings.Office;
 
 public class Office {
     private final int BASE_ROOM_AMOUNT = 1;

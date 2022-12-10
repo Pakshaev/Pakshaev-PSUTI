@@ -1,4 +1,4 @@
-package org.example.buildings;
+package org.example.buildings.Dwelling;
 
 public class Dwelling {
     private DwellingFloor[] floors; //массив этажей в доме
@@ -148,13 +148,14 @@ public class Dwelling {
         int swap = 0;
         while (swap != 0) {
             swap = 0;
-            for (int i = 0; i < newArrFlat.length - 1; i++)
+            for (int i = 0; i < newArrFlat.length - 1; i++) {
                 if (newArrFlat[i].getFlatSquare() < newArrFlat[i + 1].getFlatSquare()) {
                     Flat flat = newArrFlat[i];
                     newArrFlat[i + 1] = newArrFlat[i];
                     newArrFlat[i] = flat;
                     swap++;
                 }
+            }
         }
         return newArrFlat;
     }
